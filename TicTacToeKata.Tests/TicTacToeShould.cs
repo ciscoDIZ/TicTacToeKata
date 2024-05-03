@@ -8,7 +8,7 @@ public class TicTacToeShould
      * a game is over when all fields in a diagonal are taken by a player.
      * a game is over when all fields are taken.
      * there are two players in the game (X and O).
-     * a game has nine fields in a 3x3 grid.
+     * _a game has nine fields in a 3x3 grid_.
      * a game is over when all fields in a column are taken by a player.
      * a player can take a field if not already taken.
      * */
@@ -27,5 +27,23 @@ public class TicTacToeShould
         // Assert
         Assert.Equal(expected, actual);
     }
-   
+
+    [Fact]
+    public void allow_take_a_field_if_not_already_taken()
+    {
+        // Arrange
+        var ticTacToe = new TicTacToeKata.TicTacToe();
+        string[][] expected = 
+        [
+            ["X", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+        ];
+        
+        // Act
+        var actual = ticTacToe.Play(0, 0, "X");
+        
+        // Assert
+        Assert.Equal(expected, actual);
+    }
 }
