@@ -15,7 +15,7 @@ public class TicTacToe
 
     public string[][] Play(int row, int column, string player)
     {
-        if (_board[row][column].Equals(""))
+        if (_board[row][column].Equals("") && (player.Equals("X") || player.Equals("O")))
         {
             _board[row][column] = player;
         }
