@@ -21,8 +21,8 @@ public class TicTacToeShould
         var expected = 9;
         
         // Act
-        var actual = ticTacToe.Play(0, 0, "X").Length * 
-                     ticTacToe.Play(0, 0, "X")[0].Length;
+        var board = ticTacToe.Play(0, 0, "X");
+        var actual = board.Length * board[0].Length;
         
         // Assert
         Assert.Equal(expected, actual);
