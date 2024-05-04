@@ -1,5 +1,7 @@
 namespace TicTacToe.Tests;
 
+using TicTacToeKata;
+
 public class TicTacToeShould
 {
     /*
@@ -17,7 +19,7 @@ public class TicTacToeShould
     public void have_a_board_with_nine_fields()
     {
         // Arrange
-        var ticTacToe = new TicTacToeKata.TicTacToe();
+        var ticTacToe = new TicTacToe();
         var expected = 9;
         
         // Act
@@ -32,7 +34,7 @@ public class TicTacToeShould
     public void allow_take_a_field_if_not_already_taken()
     {
         // Arrange
-        var ticTacToe = new TicTacToeKata.TicTacToe();
+        var ticTacToe = new TicTacToe();
         string[][] expected = 
         [
             ["X", "", ""],
@@ -51,7 +53,7 @@ public class TicTacToeShould
     public void allow_only_players_X_or_O_to_take_fields()
     {
         // Arrange
-        var ticTacToe = new TicTacToeKata.TicTacToe();
+        var ticTacToe = new TicTacToe();
         string[][] expected = 
         [
             ["", "", ""],
@@ -64,5 +66,30 @@ public class TicTacToeShould
         
         // Assert
         Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void finished_game_when_all_fields_are_taken()
+    {
+        // Arrange
+        TicTacToe ticTacToe = new ();
+        var expected = true;
+        
+        // Act
+        ticTacToe.Play(0, 0, "X");
+        ticTacToe.Play(0, 1, "O");
+        ticTacToe.Play(0, 2, "X");
+        
+        ticTacToe.Play(1, 1, "O");
+        ticTacToe.Play(2, 1, "X");
+        ticTacToe.Play(1, 2, "O");
+        
+        ticTacToe.Play(1, 0, "X");
+        ticTacToe.Play(2, 0, "O");
+        ticTacToe.Play(2, 2, "X");
+        var actual = ticTacToe.IsGameOver;
+        
+        // Assert
+        Assert.Equal(expected,  actual);
     }
 }

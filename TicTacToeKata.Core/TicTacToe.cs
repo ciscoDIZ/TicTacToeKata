@@ -13,6 +13,8 @@ public class TicTacToe
         }
     }
 
+    public bool IsGameOver { get; private set; }
+
     public string[][] Play(int row, int column, string player)
     {
         if (_board[row][column].Equals("") && (player.Equals("X") || player.Equals("O")))
