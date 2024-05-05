@@ -17,7 +17,9 @@ public class TicTacToe
 
     public string[][] Play(int row, int column, string player)
     {
-        if (_board[row][column].Equals("") && (player.Equals("X") || player.Equals("O")))
+        var isFieldNotTaken = _board[row][column].Equals("");
+        var isPlayerXOrO = player.Equals("X") || player.Equals("O");
+        if (isFieldNotTaken && isPlayerXOrO)
         {
             _board[row][column] = player;
             IsGameOver = HasGameOver();
