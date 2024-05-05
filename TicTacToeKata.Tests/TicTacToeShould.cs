@@ -11,7 +11,7 @@ public class TicTacToeShould
      * _a game is over when all fields are taken._
      * _there are two players in the game (X and O)._
      * _a game has nine fields in a 3x3 grid_.
-     * a game is over when all fields in a column are taken by a player.
+     * _a game is over when all fields in a column are taken by a player._
      * _a player can take a field if not already taken_.
      * */
 
@@ -124,6 +124,25 @@ public class TicTacToeShould
         ticTacToe.Play(1, 0, "X");
         ticTacToe.Play(1, 1, "O");
         ticTacToe.Play(2, 0, "X");
+        var actual = ticTacToe.IsGameOver;
+        
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+    
+    [Fact]
+    public void finished_game_when_all_fields_are_taken_by_a_player_in_descendent_diagonal()
+    {
+        // Arrange
+        TicTacToe ticTacToe = new();
+        var expected = true;
+        
+        // Act
+        ticTacToe.Play(0, 0, "X");
+        ticTacToe.Play(0, 1, "O");
+        ticTacToe.Play(1, 1, "X");
+        ticTacToe.Play(0, 1, "O");
+        ticTacToe.Play(2, 2, "X");
         var actual = ticTacToe.IsGameOver;
         
         // Assert
