@@ -39,11 +39,6 @@ public class TicTacToe
 
     private bool HasGameOverWhenAllFieldsAreTaken()
     {
-        if (_board.All(row => !row.Contains("")))
-        {
-            return true;
-        }
-
-        return false;
+        return _board.All(row => !row.Contains(""));
     }
 }
