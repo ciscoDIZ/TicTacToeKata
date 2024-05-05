@@ -22,13 +22,17 @@ public class TicTacToe
         if (isFieldNotTaken && isPlayerXOrO)
         {
             _board[row][column] = player;
-            IsGameOver = HasGameOver();
+            IsGameOver = HasGameOver(_board[row]);
         }
         return _board;
     }
 
-    private bool HasGameOver()
+    private bool HasGameOver(string[] actualRow)
     {
+        if (actualRow.All(field => field.Equals("X") || field.Equals("O")))
+        {
+            return true;
+        }
         if (_board.All(row => !row.Contains("")))
         {
             return true;
