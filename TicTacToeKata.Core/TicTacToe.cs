@@ -34,7 +34,7 @@ public class TicTacToe
         return HasGameOverWhenAllFieldsAreTakenByAPlayerInARow(actualRow) || 
                HasGameOverWhenAllFieldsAreTaken() || 
                HasGameOverWhenAllFieldsInAColumnAreTakenByAPlayer(actualBoard) || 
-               HasGameOverWhenAPlayerTakeAllFieldsInADescendentDiagonal(actualBoard);
+               HasGameOverWhenAPlayerTakeAllFieldsInADescendentDiagonal(actualBoard) || HasGameOverWhenAPlayerTakeAllFieldsInAAscendantDiagonal(actualBoard);
     }
 
     private static bool HasGameOverWhenAllFieldsAreTakenByAPlayerInARow(string[] actualRow)
@@ -85,6 +85,26 @@ public class TicTacToe
                 var hasAnyPlayerWonTheGame = hasPlayerXWonTheGame || hasPlayerOWonTheGame;
                 
                 if (hasAnyPlayerWonTheGame)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    private bool HasGameOverWhenAPlayerTakeAllFieldsInAAscendantDiagonal(string[][] actualBoard)
+    {
+        for (int row = actualBoard.Length - 1; row > actualBoard.Length - 2; row--)
+        {
+            for (int column = 0; column < actualBoard[0].Length - 2; column++)
+            {
+                if (actualBoard[row][column].Equals("X") &&
+                    actualBoard[row - 1][column + 1].Equals("X") &&
+                    actualBoard[row - 2][column + 2].Equals("X") ||
+                    actualBoard[row][column].Equals("O") &&
+                    actualBoard[row - 1][column + 1].Equals("O") &&
+                    actualBoard[row - 2][column + 2].Equals("O"))
                 {
                     return true;
                 }
