@@ -148,4 +148,23 @@ public class TicTacToeShould
         // Assert
         Assert.Equal(expected, actual);
     }
+    
+    [Fact]
+    public void finished_game_when_all_fields_are_taken_by_a_player_in_ascendant_diagonal()
+    {
+        // Arrange
+        TicTacToe ticTacToe = new();
+        var expected = true;
+        
+        // Act
+        ticTacToe.Play(2, 0, "X");
+        ticTacToe.Play(0, 1, "O");
+        ticTacToe.Play(1, 1, "X");
+        ticTacToe.Play(0, 1, "O");
+        ticTacToe.Play(0, 2, "X");
+        var actual = ticTacToe.IsGameOver;
+        
+        // Assert
+        Assert.Equal(expected, actual);
+    }
 }
