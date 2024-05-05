@@ -33,6 +33,13 @@ public class TicTacToe
         {
             return true;
         }
+        if (HasGameOverWhenAllFieldsAreTaken()) return true;
+
+        return false;
+    }
+
+    private bool HasGameOverWhenAllFieldsAreTaken()
+    {
         if (_board.All(row => !row.Contains("")))
         {
             return true;
