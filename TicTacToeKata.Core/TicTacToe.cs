@@ -50,12 +50,15 @@ public class TicTacToe
         {
             for (int column = 0; column < actualBoard[0].Length; column++)
             {
-                if (actualBoard[row][column].Equals("X") && 
-                    actualBoard[row + 1][column].Equals("X") && 
-                    actualBoard[row + 2][column].Equals("X") || 
-                    actualBoard[row][column].Equals("O") && 
-                    actualBoard[row + 1][column].Equals("O") && 
-                    actualBoard[row + 2][column].Equals("O"))
+                var hasPlayerXWonTheGame = actualBoard[row][column].Equals("X") && 
+                              actualBoard[row + 1][column].Equals("X") && 
+                              actualBoard[row + 2][column].Equals("X");
+                var hasPlayerOWonTheGame = actualBoard[row][column].Equals("O") && 
+                              actualBoard[row + 1][column].Equals("O") && 
+                              actualBoard[row + 2][column].Equals("O");
+                var hasAnyPlayerWonTheGame = hasPlayerXWonTheGame || hasPlayerOWonTheGame;
+                
+                if (hasAnyPlayerWonTheGame)
                 {
                     return true;
                 }
