@@ -34,12 +34,7 @@ public class TicTacToe
 
     private static bool HasGameOverWhenAllFieldsAreTakenByAPlayerInARow(string[] actualRow)
     {
-        if (actualRow.All(field => field.Equals("X") || field.Equals("O")))
-        {
-            return true;
-        }
-
-        return false;
+        return actualRow.All(field => field.Equals("X") || field.Equals("O"));
     }
 
     private bool HasGameOverWhenAllFieldsAreTaken()
