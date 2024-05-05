@@ -29,10 +29,7 @@ public class TicTacToe
 
     private bool HasGameOver(string[] actualRow)
     {
-        if (HasGameOverWhenAllFieldsAreTakenByAPlayerInARow(actualRow)) return true;
-        if (HasGameOverWhenAllFieldsAreTaken()) return true;
-
-        return false;
+        return HasGameOverWhenAllFieldsAreTakenByAPlayerInARow(actualRow) || HasGameOverWhenAllFieldsAreTaken();
     }
 
     private static bool HasGameOverWhenAllFieldsAreTakenByAPlayerInARow(string[] actualRow)
