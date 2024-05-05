@@ -79,11 +79,9 @@ public class TicTacToeShould
         ticTacToe.Play(0, 0, "X");
         ticTacToe.Play(0, 1, "O");
         ticTacToe.Play(0, 2, "X");
-        
         ticTacToe.Play(1, 1, "O");
         ticTacToe.Play(2, 1, "X");
         ticTacToe.Play(1, 2, "O");
-        
         ticTacToe.Play(1, 0, "X");
         ticTacToe.Play(2, 0, "O");
         ticTacToe.Play(2, 2, "X");

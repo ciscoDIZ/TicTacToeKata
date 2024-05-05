@@ -20,7 +20,13 @@ public class TicTacToe
         if (_board[row][column].Equals("") && (player.Equals("X") || player.Equals("O")))
         {
             _board[row][column] = player;
+            IsGameOver = HasGameOver();
         }
         return _board;
+    }
+
+    private bool HasGameOver()
+    {
+        return _board.All(row => !row.Contains(""));
     }
 }
