@@ -16,6 +16,7 @@ public class TicTacToe
     }
 
     public bool IsGameOver { get; private set; }
+    public string Turn { get; private set; }
 
     public string[][] Play(int row, int column, string player)
     {
@@ -25,6 +26,7 @@ public class TicTacToe
         {
             _board[row][column] = player;
             IsGameOver = HasGameOver(_board[row], _board);
+            Turn = "X";
         }
         return _board;
     }
