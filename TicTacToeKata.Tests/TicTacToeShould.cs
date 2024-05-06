@@ -182,4 +182,24 @@ public class TicTacToeShould
         // Assert
         Assert.Equal(expected, actual);
     }
+
+    [Fact]
+    public void let_a_player_play_their_turn_when_its_their_turn()
+    {
+        // Arrange
+        TicTacToe ticTacToe = new();
+        string[][] expected = 
+        [
+            ["X", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+        ];
+        
+        // Act
+        ticTacToe.Play(0, 0, "X");
+        var actual = ticTacToe.Play(0, 1, "X");
+        
+        // Assert
+        Assert.Equal(expected, actual);
+    }
 }
