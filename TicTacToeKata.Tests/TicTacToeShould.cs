@@ -202,4 +202,23 @@ public class TicTacToeShould
         // Assert
         Assert.Equal(expected, actual);
     }
+
+    [Fact]
+    public void allow_players_take_turns_until_the_game_is_over()
+    {
+        // Arrange
+        TicTacToe ticTacToe = new();
+        var expected = "X";
+        
+        // Act
+        ticTacToe.Play(2, 0, "X");
+        ticTacToe.Play(0, 1, "O");
+        ticTacToe.Play(1, 1, "X");
+        ticTacToe.Play(2, 1, "O");
+        ticTacToe.Play(0, 2, "X");
+        var actual = ticTacToe.Turn;
+        
+        // Assert
+        Assert.Equal(expected, actual);
+    }
 }
