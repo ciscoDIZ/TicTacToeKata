@@ -141,7 +141,7 @@ public class TicTacToeShould
         ticTacToe.Play(0, 0, "X");
         ticTacToe.Play(0, 1, "O");
         ticTacToe.Play(1, 1, "X");
-        ticTacToe.Play(0, 1, "O");
+        ticTacToe.Play(0, 2, "O");
         ticTacToe.Play(2, 2, "X");
         var actual = ticTacToe.IsGameOver;
         
@@ -160,7 +160,7 @@ public class TicTacToeShould
         ticTacToe.Play(2, 0, "X");
         ticTacToe.Play(0, 1, "O");
         ticTacToe.Play(1, 1, "X");
-        ticTacToe.Play(0, 1, "O");
+        ticTacToe.Play(2, 1, "O");
         ticTacToe.Play(0, 2, "X");
         var actual = ticTacToe.IsGameOver;
         
