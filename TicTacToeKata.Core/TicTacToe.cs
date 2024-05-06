@@ -24,7 +24,7 @@ public class TicTacToe
         var isFieldNotTaken = _board[row][column].Equals("");
         var isPlayerXOrO = player.Equals("X") || player.Equals("O");
         var isPlayerTurn = player.Equals(Turn);
-        if (isFieldNotTaken && isPlayerXOrO && isPlayerTurn)
+        if (isFieldNotTaken && isPlayerXOrO && isPlayerTurn && !IsGameOver)
         {
             _board[row][column] = player;
             IsGameOver = HasGameOver(_board[row], _board);
