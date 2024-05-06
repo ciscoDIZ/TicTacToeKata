@@ -13,6 +13,7 @@ public class TicTacToe
         {
             _board[i] = ["", "", ""];
         }
+        Turn = "X";
     }
 
     public bool IsGameOver { get; private set; }
@@ -26,7 +27,7 @@ public class TicTacToe
         {
             _board[row][column] = player;
             IsGameOver = HasGameOver(_board[row], _board);
-            Turn = "X";
+            Turn = Turn.Equals("X") ? "O" : "X";
         }
         return _board;
     }
@@ -36,7 +37,8 @@ public class TicTacToe
         return HasGameOverWhenAllFieldsAreTakenByAPlayerInARow(actualRow) || 
                HasGameOverWhenAllFieldsAreTaken() || 
                HasGameOverWhenAllFieldsInAColumnAreTakenByAPlayer(actualBoard) || 
-               HasGameOverWhenAPlayerTakeAllFieldsInADescendentDiagonal(actualBoard) || HasGameOverWhenAPlayerTakeAllFieldsInAAscendantDiagonal(actualBoard);
+               HasGameOverWhenAPlayerTakeAllFieldsInADescendentDiagonal(actualBoard) || 
+               HasGameOverWhenAPlayerTakeAllFieldsInAAscendantDiagonal(actualBoard);
     }
 
     private static bool HasGameOverWhenAllFieldsAreTakenByAPlayerInARow(string[] actualRow)
