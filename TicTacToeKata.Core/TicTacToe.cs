@@ -28,7 +28,7 @@ public class TicTacToe
         {
             _board[row][column] = player;
             IsGameOver = HasGameOver(_board[row], _board);
-            Turn = Turn.Equals("X") ? "O" : "X";
+            Turn = Turn.Equals("X") && !IsGameOver ? "O" : "X";
         }
         return _board;
     }
